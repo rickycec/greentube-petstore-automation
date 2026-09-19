@@ -3,7 +3,7 @@ import { PetClient } from '../src/clients/pet.client';
 import { createTestPet } from '../src/factories/pet.factory';
 import type { Pet } from '../src/models/pet.model';
 
-test.describe('PetModel lifecycle', () => {
+test.describe('Pet lifecycle', () => {
   let petClient: PetClient;
   let pet: ReturnType<typeof createTestPet>;
 
