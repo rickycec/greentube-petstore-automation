@@ -4,7 +4,14 @@
   "private": true,
   "description": "API test automation for Swagger Petstore using TypeScript and Playwright.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "playwright test",
+    "test:report": "playwright show-report",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "check": "npm run typecheck && npm run lint && npm run format:check"
   },
   "repository": {
     "type": "git",
@@ -17,8 +24,14 @@
   },
   "homepage": "https://github.com/rickycec/greentube-petstore-automation#readme",
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.63.0",
     "@types/node": "^24.13.6",
-    "typescript": "^7.0.2"
+    "eslint": "^10.11.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-playwright": "^2.12.0",
+    "prettier": "^3.9.8",
+    "typescript": "6.0.3",
+    "typescript-eslint": "^8.70.0"
   }
 }
