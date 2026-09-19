@@ -1,4 +1,4 @@
-import type { APIRequestContext, APIResponse } from '@playwright/test';
+import type { APIRequestContext, APIResponse } from 'playwright';
 import type { Pet } from '../models/pet.model';
 
 export class PetClient {
