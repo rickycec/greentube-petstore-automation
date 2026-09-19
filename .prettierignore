@@ -1,5 +1,7 @@
 node_modules/
 playwright-report/
+reports/
+features/**/*.feature
 test-results/
 blob-report/
 coverage/

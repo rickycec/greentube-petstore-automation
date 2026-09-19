@@ -5,8 +5,10 @@
   "description": "API test automation for Swagger Petstore using TypeScript and Playwright.",
   "scripts": {
     "test": "playwright test",
-    "test:report": "playwright show-report",
+    "test:cucumber": "cucumber-js",
+    "test:cucumber:dry-run": "cucumber-js --dry-run",
     "typecheck": "tsc --noEmit",
+    "test:report": "playwright show-report",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier . --write",

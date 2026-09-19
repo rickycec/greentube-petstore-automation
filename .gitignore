@@ -6,6 +6,9 @@ playwright-report/
 test-results/
 blob-report/
 
+#Cucumber output
+reports/
+
 # Test coverage
 coverage/
 
