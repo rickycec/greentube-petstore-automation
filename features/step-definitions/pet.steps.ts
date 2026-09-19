@@ -1,8 +1,8 @@
 import { Given, Then, When } from '@cucumber/cucumber';
-import { PetWorld } from '../support/world';
+import type { PetWorld } from '../support/world';
 import { createTestPet } from '../../src/factories/pet.factory';
-import assert from 'node:assert';
-import { Pet } from '../../src/models/pet.model';
+import assert from 'node:assert/strict';
+import type { Pet } from '../../src/models/pet.model';
 
 Given('a new pet payload', function (this: PetWorld) {
   this.pet = createTestPet();
@@ -57,4 +57,62 @@ Then('the retrieved pet should match the created pet', async function (this: Pet
   assert.deepStrictEqual(retrievedPet, this.createdPet);
 
   this.responsePet = retrievedPet;
+});
+
+Given('the pet exists', async function (this: PetWorld) {
+  assert.ok(this.petClient, 'PetClient was not initialized');
+  assert.ok(this.pet, 'Pet payload was not initialized');
+
+  const createResponse = await this.petClient.createPet(this.pet);
+
+  assert.equal(createResponse.status(), 200);
+
+  const createdPet = (await createResponse.json()) as Pet;
+
+  assert.deepStrictEqual(createdPet, this.pet);
+
+  this.createdPet = createdPet;
+  this.responsePet = createdPet;
+});
+
+When('I update the pet name and status', async function (this: PetWorld) {
+  assert.ok(this.petClient, 'PetClient was not initialized');
+  assert.ok(this.createdPet, 'Existing pet was not created');
+
+  this.expectedPet = {
+    ...this.createdPet,
+    name: `${this.createdPet.name}-updated`,
+    status: 'sold',
+  };
+
+  this.response = await this.petClient.updatePet(this.expectedPet);
+});
+
+Then('the update response should match the requested changes', async function (this: PetWorld) {
+  assert.ok(this.response, 'No API response is available');
+  assert.ok(this.expectedPet, 'Expected updated pet was not stored');
+
+  const updatedPet = (await this.response.json()) as Pet;
+
+  assert.deepStrictEqual(updatedPet, this.expectedPet);
+
+  this.responsePet = updatedPet;
+});
+
+Then('the retrieved pet should match the updated pet', async function (this: PetWorld) {
+  assert.ok(this.response, 'No API response is available');
+  assert.ok(this.expectedPet, 'Expected updated pet was not stored');
+
+  const retrievedPet = (await this.response.json()) as Pet;
+
+  assert.deepStrictEqual(retrievedPet, this.expectedPet);
+
+  this.responsePet = retrievedPet;
+});
+
+When('I delete the pet', async function (this: PetWorld) {
+  assert.ok(this.petClient, 'PetClient was not initialized');
+  assert.ok(this.pet, 'Pet payload was not initialized');
+
+  this.response = await this.petClient.deletePet(this.pet.id);
 });

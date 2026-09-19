@@ -1,5 +1,5 @@
 import type { createTestPet } from '../../src/factories/pet.factory';
-import { IWorldOptions, setWorldConstructor, World } from '@cucumber/cucumber';
+import { type IWorldOptions, setWorldConstructor, World } from '@cucumber/cucumber';
 import type { APIRequestContext, APIResponse } from 'playwright';
 import type { PetClient } from '../../src/clients/pet.client';
 import type { Pet } from '../../src/models/pet.model';
