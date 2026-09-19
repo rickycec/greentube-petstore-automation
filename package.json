@@ -1,0 +1,24 @@
+{
+  "name": "greentube-petstore-automation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API test automation for Swagger Petstore using TypeScript and Playwright.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rickycec/greentube-petstore-automation.git"
+  },
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/rickycec/greentube-petstore-automation/issues"
+  },
+  "homepage": "https://github.com/rickycec/greentube-petstore-automation#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^24.13.6",
+    "typescript": "^7.0.2"
+  }
+}

@@ -1,0 +1,17 @@
+# Dependency directories
+node_modules/
+
+# Test coverage
+coverage/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Local development tools
+.idea/
+.oca/
