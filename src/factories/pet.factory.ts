@@ -1,6 +1,10 @@
-import { Pet } from '../models/pet';
+import type { Pet } from '../models/pet';
 
-export function createTestPet(overrides: Partial<Pet> = {}): Pet {
+interface TestPet extends Pet {
+  id: number;
+}
+
+export function createTestPet(overrides: Partial<Pet> = {}): TestPet {
   const id = overrides.id ?? Date.now();
 
   return {
