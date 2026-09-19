@@ -1,4 +1,4 @@
-import type { Pet } from '../models/pet';
+import type { Pet } from '../models/pet.model';
 
 interface TestPet extends Pet {
   id: number;

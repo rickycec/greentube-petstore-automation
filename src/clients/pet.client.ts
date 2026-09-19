@@ -1,5 +1,5 @@
 import type { APIRequestContext, APIResponse } from '@playwright/test';
-import type { Pet } from '../models/pet';
+import type { Pet } from '../models/pet.model';
 
 export class PetClient {
   constructor(private readonly request: APIRequestContext) {}
