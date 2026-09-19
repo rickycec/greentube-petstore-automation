@@ -1,12 +1,7 @@
 # Dependency directories
 node_modules/
 
-# Playwright output
-playwright-report/
-test-results/
-blob-report/
-
-#Cucumber output
+# Cucumber output
 reports/
 
 # Test coverage

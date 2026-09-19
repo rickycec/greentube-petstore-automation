@@ -2,13 +2,11 @@
   "name": "greentube-petstore-automation",
   "version": "1.0.0",
   "private": true,
-  "description": "API test automation for Swagger Petstore using TypeScript and Playwright.",
+  "description": "API test automation for Swagger Petstore using TypeScript, Cucumber, and Playwright.",
   "scripts": {
-    "test": "playwright test",
-    "test:cucumber": "cucumber-js",
-    "test:cucumber:dry-run": "cucumber-js --dry-run",
+    "test": "cucumber-js",
+    "test:dry-run": "cucumber-js --dry-run",
     "typecheck": "tsc --noEmit",
-    "test:report": "playwright show-report",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier . --write",
@@ -28,15 +26,16 @@
   "devDependencies": {
     "@cucumber/cucumber": "^13.2.1",
     "@eslint/js": "^10.0.1",
-    "@playwright/test": "^1.63.0",
     "@types/node": "^24.13.6",
     "eslint": "^10.11.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-playwright": "^2.12.0",
     "playwright": "^1.63.0",
     "prettier": "^3.9.8",
     "tsx": "^4.23.13",
     "typescript": "6.0.3",
     "typescript-eslint": "^8.70.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
   }
 }
