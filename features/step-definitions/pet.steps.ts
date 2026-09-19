@@ -116,3 +116,18 @@ When('I delete the pet', async function (this: PetWorld) {
 
   this.response = await this.petClient.deletePet(this.pet.id);
 });
+
+When(
+  'I create the pet with content type {string}',
+  async function (this: PetWorld, contentType: string) {
+    assert.ok(this.apiContext, 'API request context was not initialized');
+    assert.ok(this.pet, 'Pet payload was not initialized');
+
+    this.response = await this.apiContext.post('pet', {
+      headers: {
+        'Content-Type': contentType,
+      },
+      data: JSON.stringify(this.pet),
+    });
+  },
+);
